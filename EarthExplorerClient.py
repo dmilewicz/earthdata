@@ -176,12 +176,18 @@ class EarthClient():
 
 
 
+
+
 def main():
     # run_login()
 
 
     ee = EarthClient()
     ee.login(username='dmilewicz', password='Spartan117RC1136##')
+
+    sf = SpatialFilter()
+
+
 
 
 
