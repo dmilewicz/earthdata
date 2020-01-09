@@ -69,8 +69,8 @@ class TemporalFilter():
 
     def to_dict(self):
         return {
-            'startDate': self.start_date.strftime(_EE_DATE_STR_FORMAT),
-            'endDate'  : self.end_date.strftime(_EE_DATE_STR_FORMAT)
+            'startDate': self.start_date#.strftime(_EE_DATE_STR_FORMAT),
+            'endDate'  : self.end_date#.strftime(_EE_DATE_STR_FORMAT)
         }
 
 
@@ -162,8 +162,11 @@ class EarthClient():
         dataset_search_dict = self.build_request({
             'datasetName': "",
             'spatialFilter': spatialFilter.to_dict(),
-            'temporalFilter': temporalFilter.to_dict()
+            'temporalFilter': temporalFilter.to_dict(),
+            'api_key': self.api_key,
         })
+
+
 
 
 
@@ -185,7 +188,8 @@ def main():
     ee = EarthClient()
     ee.login(username='dmilewicz', password='Spartan117RC1136##')
 
-    sf = SpatialFilter()
+    sf = SpatialFilter(point=(37.569499, -120.262269))
+    tf = TemporalFilter()
 
 
 
